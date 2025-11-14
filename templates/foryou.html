@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+Foryou
+{% endblock%}
+{% block content %}
+<br> 
+<br>
+<div class="container row gap-3">
+  <h1>This is Foryou </h1>
+  {% if Todo %}
+  {% for Todos in Todo %}
+    <div class="card" style="width: 18rem; background-color:#0d0e0f;" >
+      <a href="{% url 'detail' Todos.pk %}" style="text-decoration: none;color:white;">
+      <img style="height: 5cm;" src="{{Todos.photo.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{Todos.title}}</h5>
+      <p class="card-text">{{Todos.Dsc}}</p>
+    </div>
+    </a>
+  </div>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}

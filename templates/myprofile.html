@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+  myprofile
+{% endblock %}
+{% block content %}
+<h1>Welcome Dear, {{request.user}}!</h1>
+<div class="container row gap-3">
+  {% if data %}
+    {% for dt in data %}
+    <div class="card" style="width: 18rem; background:#0a0c0f;" >
+      <a href="{% url 'detail' dt.pk %}" style="text-decoration: none;color:white;">
+        <img style="height: 5cm;" src="{{dt.photo.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{dt.title}}</h5>
+        <p class="card-text">{{dt.Dsc}}</p>
+      </div>
+      </a>
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock  %}

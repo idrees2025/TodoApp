@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+  detail
+{% endblock %}
+{% block content %}
+<div>
+  <br>
+  <br>
+  <div class="container" style="justify-content: center;display:flex;">
+    <div style="width: 10cm;">
+      <img style="width: 10cm;" src="{{Todo.photo.url}}" alt="">
+      <h1>{{Todo.title}}</h1>
+      <p>{{Todo.Dsc}}</p>
+      {% if Todo.user == user %}
+          <a class="btn btn-primary" href="{% url 'edit' Todo.id %}">Edit</a>
+          <a class="btn btn-danger" href="{% url 'delete' Todo.id %}">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+<div>
+{% endblock %}
