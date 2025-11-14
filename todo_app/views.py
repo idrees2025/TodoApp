@@ -78,6 +78,7 @@ def edit_view(request,required_id):
         form=Todoform(instance=data)
     return render(request,'createtodo.html',{'form':form})
 
+@login_required(login_url='login')
 def delete_view(request,required_id):
     if request.method == "POST":
         todo=Todo.objects.filter(id=required_id,user=request.user)
